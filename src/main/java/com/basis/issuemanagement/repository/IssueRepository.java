@@ -1,4 +1,4 @@
-package com.basis.issuemanagement.repo;
+package com.basis.issuemanagement.repository;
 
 import com.basis.issuemanagement.entity.Issue;
 import org.springframework.data.jpa.repository.JpaRepository;

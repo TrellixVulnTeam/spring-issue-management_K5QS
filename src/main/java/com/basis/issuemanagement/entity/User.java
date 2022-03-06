@@ -2,6 +2,7 @@ package com.basis.issuemanagement.entity;
 
 
 import lombok.*;
+import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.List;
