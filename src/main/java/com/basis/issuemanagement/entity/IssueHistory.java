@@ -12,7 +12,7 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class IssueHistory extends BaseEntity{
+public class IssueHistory extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,6 +29,10 @@ public class IssueHistory extends BaseEntity{
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
+    @Column(name = "issue_status")
+    @Enumerated(EnumType.STRING)
+    private IssueStatus issueStatus;
+
     @Column(name = "details", length = 4000)
     private String details;
 
@@ -36,4 +40,5 @@ public class IssueHistory extends BaseEntity{
     @JoinColumn(name = "assignee_user_id")
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
     private User assignee;
+
 }

@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class User {
+public class User extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,4 +35,5 @@ public class User {
     @JoinColumn(name = "assignee_user_id")
     @OneToMany(fetch = FetchType.LAZY)
     private List<Issue> issues;
+
 }

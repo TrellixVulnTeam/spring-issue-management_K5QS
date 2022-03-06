@@ -3,6 +3,7 @@ package com.basis.issuemanagement.service.impl;
 import com.basis.issuemanagement.entity.IssueHistory;
 import com.basis.issuemanagement.repository.IssueHistoryRepository;
 import com.basis.issuemanagement.service.IssueHistoryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
