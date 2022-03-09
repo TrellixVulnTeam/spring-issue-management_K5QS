@@ -10,11 +10,11 @@ import java.util.List;
 
 public interface ProjectService {
 
-    Project save(Project project);
+    ProjectDto save(ProjectDto project);
 
     ProjectDto getById(Long id) throws ProjectNotFoundError;
 
-    List<Project> getByProjectCode(String projectCode);
+    ProjectDto getByProjectCode(String projectCode);
 
     List<Project> getByProjectCodeContains(String projectCode);
 
@@ -22,4 +22,5 @@ public interface ProjectService {
 
     Boolean delete(Project project);
 
+    ProjectDto update(Long id, ProjectDto project);
 }

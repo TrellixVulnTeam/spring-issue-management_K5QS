@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class ErrorHandler {
     @ExceptionHandler(ProjectNotFoundError.class)
     public ResponseEntity<?> handleProjectNotFoundError() {
-        return new ResponseEntity<>("Project not exist with this id", HttpStatus.NOT_ACCEPTABLE);
+        return new ResponseEntity<>("Project not exist with this ıd", HttpStatus.NOT_ACCEPTABLE);
     }
 }
