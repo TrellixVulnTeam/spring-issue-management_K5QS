@@ -6,12 +6,12 @@ import com.basis.issuemanagement.repository.IssueRepository;
 import com.basis.issuemanagement.service.IssueService;
 import com.basis.issuemanagement.util.TPage;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 
 @Service
@@ -42,7 +42,8 @@ public class IssueServiceImpl implements IssueService {
 
     @Override
     public IssueDto getById(Long id) {
-        return null;
+        Issue issue = issueRepository.getById(id);
+        return modelMapper.map(issue, IssueDto.class);
     }
 
     @Override
@@ -55,7 +56,14 @@ public class IssueServiceImpl implements IssueService {
     }
 
     @Override
-    public Boolean delete(IssueDto issue) {
+    public Boolean delete(Long id) {
+        issueRepository.deleteById(id);
+        return true;
+    }
+
+    @Override
+    public IssueDto update(Long id, IssueDto issue) {
         return null;
     }
+
 }

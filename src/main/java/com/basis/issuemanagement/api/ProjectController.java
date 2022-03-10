@@ -3,13 +3,14 @@ package com.basis.issuemanagement.api;
 import com.basis.issuemanagement.dto.ProjectDto;
 import com.basis.issuemanagement.exceptions.ProjectNotFoundError;
 import com.basis.issuemanagement.service.impl.ProjectServiceImpl;
+import com.basis.issuemanagement.util.ApiPaths;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/project")
+@RequestMapping(ApiPaths.ProjectCtrl.CTRL)
 public class ProjectController {
 
     private final ProjectServiceImpl projectServiceImpl;
@@ -38,7 +39,4 @@ public class ProjectController {
     public  ResponseEntity<Boolean> delete(@PathVariable(value = "id", required = true) Long id){
         return ResponseEntity.ok(projectServiceImpl.delete(id));
     }
-
-
-
 }

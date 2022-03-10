@@ -1,7 +1,6 @@
 package com.basis.issuemanagement.service;
 
 import com.basis.issuemanagement.dto.IssueDto;
-
 import com.basis.issuemanagement.util.TPage;
 import org.springframework.data.domain.Pageable;
 
@@ -13,6 +12,8 @@ public interface IssueService {
 
     TPage<IssueDto> getAllPageable(Pageable pageable);
 
-    Boolean delete(IssueDto issue);
+    Boolean delete(Long id);
+
+    IssueDto update(Long id, IssueDto issue);
 
 }
