@@ -29,7 +29,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select().paths(PathSelectors.any())
-                .apis(RequestHandlerSelectors.basePackage("com.basis"))
+                .apis(RequestHandlerSelectors.any())
                 .build()
                 .pathMapping("/")
                 .useDefaultResponseMessages(false)
