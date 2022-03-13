@@ -2,7 +2,6 @@ package com.basis.issuemanagement.service.impl;
 
 import com.basis.issuemanagement.dto.ProjectDto;
 import com.basis.issuemanagement.entity.Project;
-import com.basis.issuemanagement.exceptions.ProjectNotFoundError;
 import com.basis.issuemanagement.repository.ProjectRepository;
 import com.basis.issuemanagement.service.ProjectService;
 import org.modelmapper.ModelMapper;
@@ -40,10 +39,8 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public ProjectDto getById(Long id) throws ProjectNotFoundError {
-        Project p = projectRepository.findById(id).orElseThrow(() -> {
-            return new ProjectNotFoundError("Id :" + id);
-        });
+    public ProjectDto getById(Long id){
+        Project p = projectRepository.getById(id);
         return modelMapper.map(p, ProjectDto.class);
 
     }

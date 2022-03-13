@@ -2,7 +2,6 @@ package com.basis.issuemanagement.service;
 
 import com.basis.issuemanagement.dto.ProjectDto;
 import com.basis.issuemanagement.entity.Project;
-import com.basis.issuemanagement.exceptions.ProjectNotFoundError;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -12,7 +11,7 @@ public interface ProjectService {
 
     ProjectDto save(ProjectDto project);
 
-    ProjectDto getById(Long id) throws ProjectNotFoundError;
+    ProjectDto getById(Long id);
 
     ProjectDto getByProjectCode(String projectCode);
 
