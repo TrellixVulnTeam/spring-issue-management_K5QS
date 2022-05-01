@@ -2,7 +2,6 @@ package com.basis.issuemanagement.entity;
 
 
 import lombok.*;
-import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.List;
@@ -36,4 +35,11 @@ public class User extends BaseEntity {
     @OneToMany(fetch = FetchType.LAZY)
     private List<Issue> issues;
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }

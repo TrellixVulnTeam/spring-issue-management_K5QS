@@ -3,10 +3,11 @@ package com.basis.issuemanagement.api;
 import com.basis.issuemanagement.dto.ProjectDto;
 import com.basis.issuemanagement.service.impl.ProjectServiceImpl;
 import com.basis.issuemanagement.util.ApiPaths;
+import com.basis.issuemanagement.util.TPage;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,12 +17,19 @@ import javax.validation.Valid;
 @RequestMapping(ApiPaths.ProjectCtrl.CTRL)
 @Api(value = ApiPaths.ProjectCtrl.CTRL, tags = "Project APIs")
 @Slf4j
-public class ProjectController {
+public class  ProjectController {
 
     private final ProjectServiceImpl projectServiceImpl;
 
     public ProjectController(ProjectServiceImpl projectServiceImpl) {
         this.projectServiceImpl = projectServiceImpl;
+    }
+
+    @GetMapping("/pagination")
+    @ApiOperation(value = "Get By Pagination Operation", response = ProjectDto.class)
+    public ResponseEntity<TPage<ProjectDto>> getAllByPagination(Pageable pageable) {
+        TPage<ProjectDto> data = projectServiceImpl.getAllPageable(pageable);
+        return ResponseEntity.ok(data);
     }
 
     @GetMapping("/{id}")
